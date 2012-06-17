@@ -1,0 +1,34 @@
+****************************************************************************
+* README *******************************************************************
+****************************************************************************
+Fréchet tools: Java utilities for visualizing the Fréchet distance.
+****************************************************************************
+This program is a set of GUI components that may be used to visualize the 
+so called Fréchet distance. To launch the individual components, the scripts
+located within the 'scripts' directory on the top level of the project 
+hierarchy may be used. Here's a short explanation:
+
+
+scripts/frechet: ***********************************************************
+****************************************************************************
+launch java with the classpath defined correctly. This is not a specific
+application launcher but it may be used to start any class within the
+classpath.
+
+scripts/line.editor.sh: ****************************************************
+****************************************************************************
+launch the line editor. This is a test for the line-editing component for
+single line segments.
+
+scripts/freespace.single.sh: ***********************************************
+****************************************************************************
+launch the program that shows two line segment editors along with a single
+cell Fréchet diagram representing the free space created by the line
+segments.
+
+scripts/freespace.curve.sh: ************************************************
+****************************************************************************
+launch the program that allows the user to define two polygonal chains and
+then offers a few utility functions to operate on those lines. Most 
+importantly the user may display a Fréchet diagram that is connected to
+the two first lines of the line editor.
