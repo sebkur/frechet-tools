@@ -18,7 +18,6 @@
 
 package de.topobyte.frechet.geometry.ui.lineeditor;
 
-
 import java.awt.AWTEvent;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -36,19 +35,23 @@ import de.topobyte.frechet.geometry.ui.geom.Coordinate;
 import de.topobyte.frechet.geometry.ui.geom.Editable;
 import de.topobyte.frechet.geometry.ui.misc.Menu;
 
-public class RunDualLineEditor
-{
+public class RunDualLineEditor {
 
 	final static int STEP_SIZE = 1;
 	final static int STEP_SIZE_BIG = 10;
-	
-	public static void main(String[] args)
-	{
+
+	public static void main(String[] args) {
+		runProgrammatically(true);
+	}
+
+	public static void runProgrammatically(boolean exitOnClose) {
 		BasicConfigurator.configure();
 
 		final JFrame frame = new JFrame();
 		frame.setSize(1200, 440);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if (exitOnClose) {
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
 
 		frame.setTitle("Line Editor. red - start, blue - end");
 
@@ -56,36 +59,37 @@ public class RunDualLineEditor
 
 		Menu menu = new Menu();
 		frame.setJMenuBar(menu);
-		
+
 		Editable line1 = new Editable();
 		Editable line2 = new Editable();
-		
-//		line1.addPoint(new Coordinate(20, 50));
-//		line1.addPoint(new Coordinate(170, 150));
-//		
-//		line2.addPoint(new Coordinate(30, 150));
-//		line2.addPoint(new Coordinate(140, 50));
-		
-//		int epsilon = 50;
-		
-//		line1.addPoint(new Coordinate(0, 100));
-//		line1.addPoint(new Coordinate(100, 0));
-//		
-//		line2.addPoint(new Coordinate(0, 50));
-//		line2.addPoint(new Coordinate(100, 50));
-		
+
+		// line1.addPoint(new Coordinate(20, 50));
+		// line1.addPoint(new Coordinate(170, 150));
+		//
+		// line2.addPoint(new Coordinate(30, 150));
+		// line2.addPoint(new Coordinate(140, 50));
+
+		// int epsilon = 50;
+
+		// line1.addPoint(new Coordinate(0, 100));
+		// line1.addPoint(new Coordinate(100, 0));
+		//
+		// line2.addPoint(new Coordinate(0, 50));
+		// line2.addPoint(new Coordinate(100, 50));
+
 		int epsilon = 100;
-		
+
 		line1.addPoint(new Coordinate(0, 200));
 		line1.addPoint(new Coordinate(200, 0));
-		
+
 		line2.addPoint(new Coordinate(0, 100));
 		line2.addPoint(new Coordinate(200, 100));
-		
-//		line2.addPoint(new Coordinate(0, 200));
-//		line2.addPoint(new Coordinate(200, 0));
-		
-		final DualLineEditor lineEditor = new DualLineEditor(size, size, line1, line2, epsilon);
+
+		// line2.addPoint(new Coordinate(0, 200));
+		// line2.addPoint(new Coordinate(200, 0));
+
+		final DualLineEditor lineEditor = new DualLineEditor(size, size, line1,
+				line2, epsilon);
 
 		GridBagConstraints c = new GridBagConstraints();
 
@@ -100,7 +104,7 @@ public class RunDualLineEditor
 		mainPanel.add(lineEditor, c);
 
 		frame.setVisible(true);
-		
+
 		Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
 
 			@Override
@@ -108,7 +112,8 @@ public class RunDualLineEditor
 				if (e.getSource() != frame) {
 					System.out.println(e.getSource());
 					return;
-				};
+				}
+				;
 				MouseWheelEvent event = (MouseWheelEvent) e;
 
 				int modifiers = event.getModifiers();

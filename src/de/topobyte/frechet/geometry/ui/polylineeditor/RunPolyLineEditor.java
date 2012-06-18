@@ -18,7 +18,6 @@
 
 package de.topobyte.frechet.geometry.ui.polylineeditor;
 
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -31,15 +30,20 @@ import de.topobyte.frechet.geometry.ui.geom.Coordinate;
 import de.topobyte.frechet.geometry.ui.geom.Editable;
 import de.topobyte.frechet.geometry.ui.misc.Menu;
 
-public class RunPolyLineEditor
-{
-	public static void main(String[] args)
-	{
+public class RunPolyLineEditor {
+
+	public static void main(String[] args) {
+		runProgrammatically(true);
+	}
+
+	public static void runProgrammatically(boolean exitOnClose) {
 		BasicConfigurator.configure();
 
 		JFrame frame = new JFrame();
 		frame.setSize(500, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if (exitOnClose) {
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
 
 		frame.setTitle("Line Editor");
 

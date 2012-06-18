@@ -18,7 +18,6 @@
 
 package de.topobyte.frechet.geometry.ui.lineeditor;
 
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -31,15 +30,20 @@ import de.topobyte.frechet.geometry.ui.geom.Coordinate;
 import de.topobyte.frechet.geometry.ui.geom.Editable;
 import de.topobyte.frechet.geometry.ui.misc.Menu;
 
-public class RunLineEditor
-{
-	public static void main(String[] args)
-	{
+public class RunLineEditor {
+
+	public static void main(String[] args) {
+		runProgrammatically(true);
+	}
+
+	public static void runProgrammatically(boolean exitOnClose) {
 		BasicConfigurator.configure();
 
 		JFrame frame = new JFrame();
 		frame.setSize(800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if (exitOnClose) {
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
 
 		frame.setTitle("Line Editor");
 
@@ -49,10 +53,10 @@ public class RunLineEditor
 		frame.setJMenuBar(menu);
 
 		Editable line = new Editable();
-		
+
 		line.addPoint(new Coordinate(20, 50));
-		line.addPoint(new Coordinate(180, 150));		
-		
+		line.addPoint(new Coordinate(180, 150));
+
 		LineEditor lineEditor = new LineEditor(size, size, line);
 
 		// toolbar.setFloatable(false);
@@ -75,4 +79,5 @@ public class RunLineEditor
 
 		frame.setVisible(true);
 	}
+
 }

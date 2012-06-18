@@ -15,6 +15,10 @@ launch java with the classpath defined correctly. This is not a specific
 application launcher but it may be used to start any class within the
 classpath.
 
+scripts/application.selector.sh: *******************************************
+****************************************************************************
+show a frame that lets you select from the available UIs which to launch.
+
 scripts/line.editor.sh: ****************************************************
 ****************************************************************************
 launch the line editor. This is a test for the line-editing component for
