@@ -14,6 +14,5 @@ CLASSPATH+=:$DIR/../bin/
 CLASSPATH+=:$DIR/../
 #echo "CLASSPATH=$CLASSPATH"
 
-#CMD="java -cp $CLASSPATH"
-CMD="/usr/lib/jvm/java-6-sun/jre/bin/java -cp $CLASSPATH"
+CMD="java -cp $CLASSPATH"
 exec $CMD "$@"
