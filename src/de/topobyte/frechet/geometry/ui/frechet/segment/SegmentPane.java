@@ -35,12 +35,15 @@ import de.topobyte.frechet.geometry.ui.frechet.calc.LineSegment;
 import de.topobyte.frechet.geometry.ui.frechet.calc.Vector;
 import de.topobyte.frechet.geometry.ui.lineeditor.LineChangeListener;
 import de.topobyte.frechet.util.DoubleUtil;
+import de.topobyte.frechet.util.SwingUtil;
 
 public class SegmentPane extends JPanel implements LineChangeListener,
 		EpsilonSettable {
 
 	private static final long serialVersionUID = 8167797259833415618L;
 
+	private static boolean DEBUG = false;
+	
 	private LineSegment seg1 = null;
 	private LineSegment seg2 = null;
 
@@ -79,8 +82,10 @@ public class SegmentPane extends JPanel implements LineChangeListener,
 		}
 
 		Graphics2D g = (Graphics2D) graphics;
-		// SwingUtil.useAntialiasing(g, true);
-		System.out.println("clip: " + g.getClip());
+		 SwingUtil.useAntialiasing(g, true);
+		if (DEBUG) {
+			System.out.println("clip: " + g.getClip());
+		}
 
 		int width = getWidth();
 		int height = getHeight();
@@ -196,7 +201,9 @@ public class SegmentPane extends JPanel implements LineChangeListener,
 		double rhb = Math.sqrt(hb);
 		double i1 = ha + rhb;
 		double i2 = ha - rhb;
-		System.out.println(String.format("%f -> %f", i1, i2));
+		if (DEBUG) {
+			System.out.println(String.format("%f -> %f", i1, i2));
+		}
 		return new Interval(i1, i2);
 	}
 

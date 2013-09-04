@@ -18,9 +18,10 @@
 
 package de.topobyte.frechet.geometry.ui.frechet.calc;
 
-
 public class Ellipse
 {
+	
+	private static boolean DEBUG = false;
 
 	private final double theta;
 	private final double a;
@@ -42,6 +43,10 @@ public class Ellipse
 		double arctan2alpha = 2 * b / (a - c);
 		theta = Math.atan(arctan2alpha) / 2.0;
 
+		if (!DEBUG) {
+			return;
+		}
+
 		System.out.println("theta: " + theta);
 
 		double cos = Math.cos(theta);
@@ -53,11 +58,11 @@ public class Ellipse
 		double e$ = -d * sin + e * cos;
 		double f$ = f;
 
-		System.out.println(String
-				.format("%f, %f, %f, %f, %f, %f", a, b, c, d, e, f));
-		System.out.println(String
-				.format("%f, %f, %f, %f, %f", a$, c$, d$, e$, f$));
-		
+		System.out.println(String.format("%f, %f, %f, %f, %f, %f", a, b, c, d,
+				e, f));
+		System.out.println(String.format("%f, %f, %f, %f, %f", a$, c$, d$, e$,
+				f$));
+
 		double a1 = Math.sqrt(Math.abs(a$ / -f$));
 		double c1 = Math.sqrt(Math.abs(c$ / -f$));
 		System.out.println(String.format("%f, %f", a1, c1));
